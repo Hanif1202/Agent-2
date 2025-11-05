@@ -75,6 +75,7 @@ def get_token_post():
         traceback.print_exc()
         return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    port = int(os.environ.get("PORT", 5001))  # ✅ Render uses this
+    app.run(host="0.0.0.0", port=port, debug=True)
 
  
